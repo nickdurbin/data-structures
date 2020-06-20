@@ -19,27 +19,27 @@ Stretch: What if you could only use instances of your Stack class to implement t
 """
 
 # For an array
-# class Queue:
-# 	def __init__(self):
-# 		self.size = 0
-# 		self.storage = []
+class Queue:
+	def __init__(self):
+		self.size = 0
+		self.storage = []
 	
-# 	def __len__(self):
-# 		return len(self.storage)
+	def __len__(self):
+		return len(self.storage)
 
-# 	def enqueue(self, value):
-# 		self.storage.insert(0, value)
+	def enqueue(self, value):
+		self.storage.insert(0, value)
 
-# 	def dequeue(self):
-# 		if len(self.storage) >= 1:
-# 			val = self.storage[-1]
-# 			self.storage.pop(-1)
-# 			return val
-# 		else: 
-# 			return None
+	def dequeue(self):
+		if len(self.storage) >= 1:
+			val = self.storage[-1]
+			self.storage.pop(-1)
+			return val
+		else: 
+			return None
 
 # For a LinkedList
-class Queue:
+class LinkedQueue:
 	def __init__(self):
 		self.size = 0
 		self.storage = LinkedList()
