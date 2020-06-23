@@ -71,7 +71,7 @@ class DoublyLinkedList:
 					next_node.next
 				else:
 					self.head = current_node
-				seld.length -= 1
+				self.length -= 1
 				return True
 			else:
 				current_node = current_node.next
