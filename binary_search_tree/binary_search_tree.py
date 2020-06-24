@@ -13,7 +13,6 @@ class BSTNode:
         self.value = value
         self.left = None
         self.right = None
-​
     # Insert the given value into the tree
     def insert(self, value):
         # take the current value of our node (self.value)    
