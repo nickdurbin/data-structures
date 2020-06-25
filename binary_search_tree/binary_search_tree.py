@@ -14,20 +14,28 @@ class BSTNode:
         self.left = None
         self.right = None
     # Insert the given value into the tree
+    # O(log n)
     def insert(self, value):
         # take the current value of our node (self.value)    
         # compare to the new value we want to insert
 
-        # if new value < self.value
+        if value < self.value
             # IF self.left is already taken by a node
                 # make that (left) node, call insert 
             # set the left to the new node with the new value
+            if self.left is None:
+                self.left = BSTNode(value)
+            else:
+                self.left.insert(value)
 
-        # if new value >= self.value
+        if value >= self.value:
             # IF self.right is already taken by a node
                 # make that (right) node call insert 
             # set the right child to the new node with new value
-        pass
+            if self.right is None:
+                self.right = BSTNode(value)
+            else:
+                self.right.insert(value)
 
     # Return True if the tree contains the value
     # False if it does not
@@ -35,17 +43,17 @@ class BSTNode:
         if self.value == target:
             return True
         # compare the target to current value
-        # if current value < target
+        # if current value is greater than target
         found = False
-        if self.value < target:
+        if self.value >= target:
             # check the left subtree (self.left.contains(target))
             # if you cannot go left, return False
             if self.left is None:
                 return False
             found = self.left.contains(target)
             
-        # if current value >= target
-        if self.value >= target:
+        # if current value less than target
+        if self.value < target:
             # check if right subtree contains target
             # if you cannot go right, return False
             if self.right is None:
