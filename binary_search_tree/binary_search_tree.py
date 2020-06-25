@@ -67,13 +67,22 @@ class BSTNode:
         # the largest value will always be to the right of the current node
         # if we can go right, lets find the largest number there by calling get_max on the right subtree
         # if we cannot go right, return the current value
+        if self.right is None:
+            return self.value
+        return self.right.get_max()
 ​
     # Call the function `fn` on the value of each node
     def for_each(self, fn):
         # call function on the current value fn(self.value)
         # if you can go left, call for_each on the left tree
         # if you can go right, call for_each on the right tree
-        pass
+        fn(self.value)
+
+        if self.left:
+            self.left,for_each(fn)
+
+        if self.right:
+            self.right.for_each(fn)
 ​
     # Part 2 -----------------------
 ​
