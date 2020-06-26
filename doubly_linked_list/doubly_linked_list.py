@@ -44,6 +44,9 @@ class DoublyLinkedList:
 	def __len__(self):
 		return self.length
 
+	def __str__(self):
+		return f'The length of the list is {self.length},\nHead : {self.head.value},\nTail: {self.tail.value}'
+
 	"""Wraps the given value in a ListNode and inserts it 
 	as the new head of the list. Don't forget to handle 
 	the old head node's previous pointer accordingly."""
@@ -103,12 +106,28 @@ class DoublyLinkedList:
 	the node was the head or the tail"""
 	def delete(self, node):
 		if self.head is None and self.tail is None:
-			return None
+			return
+			self.length -= 1
 		if self.head == self.tail:
-			self.head = current_node
-			self.tail = current_node
-			
+			self.head = None                
+			self.tail = None
+		elif self.head == node:
+			self.head = node.next        
+			node.delete()
+		elif self.tail == node:
+			self.tail = node.prev        
+			node.delete()
+		else:
+			node.delete()
 			
 	"""Returns the highest value currently in the list"""
 	def get_max(self):
-		pass
+		if not self.head:
+			return None
+		max_val = self.head.value
+		current = self.head
+		while current:
+			if current.value > max_val:
+				max_val = current.value
+			current = current.next
+		return max_val
