@@ -20,7 +20,7 @@ class BSTNode:
         # compare to the new value we want to insert
 
         if value < self.value:
-            # IF self.left is already taken by a node
+            # If self.left is already taken by a node
                 # make that (left) node, call insert 
             # set the left to the new node with the new value
             if self.left is None:
